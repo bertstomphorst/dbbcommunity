@@ -1,9 +1,0 @@
-#. module: advisto_bedrijfsuitstraling
-#: model_terms:ir.ui.view,arch_db:advisto_bedrijfsuitstraling.external_layout_standard_advisto
-msgid "Page"
-msgstr "Pagina"
-
-#. module: advisto_bedrijfsuitstraling
-#: model_terms:ir.ui.view,arch_db:advisto_bedrijfsuitstraling.external_layout_standard_advisto
-msgid "of"
-msgstr "van"
