@@ -1,0 +1,107 @@
+<odoo>
+    <record id="view_partner_tree" model="ir.ui.view">
+        <field name="name">view_partner_tree DBB</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree" />
+        <field name="arch" type="xml">
+            <!-- toon mobiel nummer -->
+            <xpath expr="//field[@name='mobile']" position="attributes">
+                <attribute name="optional">show</attribute>
+            </xpath>
+
+            <!-- toon labels -->
+            <xpath expr="//field[@name='category_id']" position="attributes">
+                <attribute name="optional">show</attribute>
+            </xpath>
+
+            <!-- verberg verkoper -->
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+
+            <!-- verberg bedrijf -->
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+
+            <!-- bungalownummer -->
+            <xpath expr="//field[@name='email']" position="after">
+                <field name="x_dbb_bungalownummer" invisible="x_dbb_bungalownummer == False"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">view_partner_form DBB</field>
+        <field name="model">res.partner</field>
+        <field name="priority">14</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <!-- bungalownummer -->
+                <field name="x_dbb_bungalownummer"/>
+                <!-- Relatienummer -->
+                <field name="x_dbb_relatienummer" readonly="parent_id"/>
+            </xpath>
+
+            <!-- div. velden verplaatsen -->
+            <xpath expr="//field[@name='vat']" position="before">
+                <xpath expr="//field[@name='title']" position="move"/>
+                <xpath expr="//field[@name='active_lang_count']" position="move"/>
+                <xpath expr="//field[@name='lang']" position="move"/>
+                <xpath expr="//field[@name='category_id']" position="move"/>
+            </xpath>
+            <xpath expr="//field[@name='website']" position="after">
+                <xpath expr="//field[@name='vat']" position="move"/>
+            </xpath>
+
+            <!-- interne opmerkingen meer in beeld-->
+            <xpath expr="//field[@name='vat']" position="after">
+                <xpath expr="//field[@name='comment']" position="move"/>
+            </xpath>
+            <xpath expr="//field[@name='comment']" position="attributes">
+                <attribute name="nolabel">0</attribute>
+            </xpath>
+            <xpath expr="//page[@name='internal_notes']" position="replace" />
+
+            <!-- labels ook zichtbaar in popup van sub-contacten -->
+            <xpath expr="//field[@name='child_ids']/form[1]/sheet[1]/group[1]/group[2]/field[@name='mobile']" position="after">
+                <field name="category_id" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_simple_form_dbb" model="ir.ui.view">
+        <field name="name">res.partner.form.simple DBB</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_simple_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='function']" position="after">
+                <field name="x_dbb_bungalownummer" invisible="is_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_res_partner_filter" model="ir.ui.view">
+        <field name="name">view_res_partner_filter DBB</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <!-- zoeken op bungalownummer -->
+            <xpath expr="//search[1]/field[@name='name']" position="after">
+                <field name="x_dbb_bungalownummer"/>
+            </xpath>
+
+            <!-- niet zoeken op verkoper -->
+            <xpath expr="//field[@name='user_id']" position="replace"/>
+
+            <!-- filteren op taal NL/DE t.b.v. mails aan groepen -->
+            <xpath expr="//search[1]/separator[1]" position="after">
+                <filter domain="[('lang', '=', 'nl_NL')]" name="filter_lang_nl" string="Taal Nederlands"/>
+                <filter domain="[('lang', '=', 'de_DE')]" name="filter_lang_de" string="Taal Duits"/>
+                <separator name="separator_filter_lang"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

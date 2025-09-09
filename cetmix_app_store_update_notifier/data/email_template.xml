@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <record id="email_template_app_store_update" model="mail.template">
+        <field name="name">Odoo modules update notification</field>
+        <field name="model_id" ref="model_ir_module_module" />
+        <field
+            name="subject"
+        >New Odoo module updates are available for {{ object.env['ir.config_parameter'].sudo().get_param('web.base.url') }}</field>
+        <field name="auto_delete" eval="True" />
+        <field name="body_html" type="html">
+            <div>
+                <p>
+                    Hello,<br /><br />
+                    Following modules installed on your Odoo instance <t
+                        t-out="object.env['ir.config_parameter'].sudo().get_param('web.base.url')"
+                    /> have newer versions in the Odoo App Store:<br />
+                    <table class="table table-bordered" style="table-layout: auto">
+                        <thead>
+                            <th>Module</th>
+                            <th>Technical Name</th>
+                            <th>Installed Version</th>
+                            <th>Available Version</th>
+                        </thead>
+                        <tbody>
+                            <t
+                                t-foreach="object.get_modules_need_update().items()"
+                                t-as="module"
+                            >
+                                <tr>
+                                    <td><t t-out="module[1]['display_name']" /></td>
+                                    <td><t t-out="module[0]" /></td>
+                                    <td><t
+                                            t-out="module[1]['version_local_running']"
+                                        /></td>
+                                    <td><t t-out="module[1]['version_remote']" /></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <br /><br />
+                    Please download and install the latest version at your earliest convenience.<br
+                    /><br />
+                    Best regards,<br />
+                    <t t-out="object.env.ref('base.partner_root').name" /><br />
+                </p>
+            </div>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="external_layout_standard_dbb" inherit_id="web.external_layout_standard">
+			<xpath expr="//div[1]/div[1]" position="before">
+				<t t-set="current_company" t-value="company.company_id if company._name == 'base.document.layout' else company"/>
+			</xpath>
+
+			<!-- Logo gecentreerd -->
+			<xpath expr="//div[1]/div[1]" position="replace">
+				<div class="text-center my-3">
+					<img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 100px; min-height: 100px;" t-attf-alt="Logo {company.name}"/>
+				</div>
+			</xpath>
+
+			<!-- Horizontale lijn weglaten -->
+			<xpath expr="//div[1]/div[2]" position="replace"/>
+
+			<!-- Header weglaten  -->
+			<xpath expr="//div[1]/div[2]" position="replace"/>
+
+			<!-- Footer -->
+			<xpath expr="//ul[hasclass('list-inline')]" position="replace">
+				<table class="table table-sm table-borderless avoid-page-break-inside text-start text-nowrap small" >
+					<tr>
+						<td style="width: 20%; color: #b59b97;">Bezoekadres</td>
+						<td style="width: 20%; color: #b59b97;">Postadres</td>
+						<td style="width: 5%; color: #b59b97;">Tel.</td>
+						<td style="width: 10%;"><t t-out="current_company.phone"/></td>
+						<td style="width: 5%; color: #b59b97;">BTW-nr.</td>
+						<td style="width: 10%;"><t t-out="current_company.vat"/></td>
+					</tr>
+					<tr>
+						<td><t t-out="current_company.street"/></td>
+						<td><t t-out="current_company.x_dbb_post_street"/></td>
+						<td style="color: #b59b97;">E-mail</td>
+						<td><t t-out="current_company.email"/></td>
+						<td style="color: #b59b97;">K.v.K.</td>
+						<td><t t-out="current_company.company_registry"/></td>
+					</tr>
+					<tr>
+						<td><t t-out="current_company.zip"/> <t t-out="current_company.city"/></td>
+						<td><t t-out="current_company.x_dbb_post_zip"/> <t t-out="current_company.x_dbb_post_city"/></td>
+						<td style="color: #b59b97;">Website</td>
+						<td><t t-out="current_company.website.replace('http://', '').replace('https://', '')"/></td>
+						<td style="color: #b59b97;">IBAN</td>
+						<td><t t-out="current_company.bank_ids[0].acc_number"/></td>
+					</tr>
+				</table>
+			</xpath>
+		</template>
+	</data>
+</odoo>

@@ -1,0 +1,66 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_contacts
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-16 12:08+0000\n"
+"PO-Revision-Date: 2024-07-16 12:08+0000\n"
+"Last-Translator: Bert Stomphorst\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_contacts
+#: model:ir.model.fields,field_description:project_contacts.field_project_project__related_partner_ids
+msgid "Related contacts"
+msgstr "Gerelateerde contacten"
+
+#. module: project_contacts
+#: model:ir.model.fields,field_description:project_contacts.field_project_project__related_partner_category_ids
+msgid "Related contacts tags"
+msgstr "Gerelateerde contact-labels"
+
+#. module: project_contacts
+#. odoo-python
+#: code:addons/project_contacts/models/res_partner.py:0
+#, python-format
+msgid "Related projects for %s"
+msgstr "Gerelateerde projecten van %s"
+
+
+#. module: project_contacts
+#: model_terms:ir.ui.view,arch_db:project_contacts.edit_project_contacts
+#: model_terms:ir.ui.view,arch_db:project_contacts.project_contacts_view_form_simplified
+msgid "Select related contacts..."
+msgstr "Selecteer gerelateerde contacten"
+
+#. module: project_contacts
+#: model_terms:ir.ui.view,arch_db:project_contacts.edit_project_contacts
+#: model_terms:ir.ui.view,arch_db:project_contacts.project_contacts_view_form_simplified
+msgid "Select related contact-tags..."
+msgstr "Selecteer gerelateerde contact-labels"
+
+
+
+
+#. module: project_contacts
+#: model:ir.model.fields,field_description:project_contacts.field_res_partner__related_project_ids
+#: model:ir.model.fields,field_description:project_contacts.field_res_users__related_project_ids
+msgid "Related Projects ids"
+msgstr "Gerelateerde projecten ids"
+
+#. module: project_contacts
+#: model:ir.model.fields,field_description:project_contacts.field_res_partner__related_project_count
+#: model:ir.model.fields,field_description:project_contacts.field_res_users__related_project_count
+msgid "Related projects"
+msgstr "Gerelateerde projecten"
+
+#. module: project_contacts
+#: model_terms:ir.ui.view,arch_db:project_contacts.view_partner_form_project_contacts
+msgid "Related projects"
+msgstr "Gerelateerde projecten"

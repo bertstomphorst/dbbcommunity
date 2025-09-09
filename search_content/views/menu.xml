@@ -1,0 +1,9 @@
+<odoo>
+    <menuitem
+        id="search_content_root"
+        name="Search content"
+        groups="base.group_user,base.group_partner_manager"
+        web_icon="search_content,static/description/icon_menu.png"
+        sequence="6"
+    />
+</odoo>

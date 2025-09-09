@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="prt_mail_messages.action_prt_mail_messages" model="ir.actions.act_window">
+        <field name="domain">
+            [('message_type', 'in', ['email', 'email_outgoing'])]
+        </field>
+        <field name="context">
+            {'check_messages_access': True, 'search_default_filter_inbox_shared': 1, 'search_default_message_needaction': 1}
+        </field>
+    </record>
+
+    <record id="prt_mail_message_search_advisto" model="ir.ui.view">
+        <field name="name">prt.mail.message.search Advisto</field>
+        <field name="model">mail.message</field>
+        <field name="inherit_id" ref="prt_mail_messages.prt_mail_message_search" />
+        <field name="arch" type="xml">
+            <field name="author_id" position="replace">
+                <field
+                    name="author_id"
+                    string="Author"
+                    filter_domain="['|', ('author_id', 'ilike', self), ('email_from', 'ilike', self)]"
+                />
+            </field>
+
+            <filter name="filter_subtype_comment" position="replace"/>
+            <filter name="filter_subtype_internal_note" position="replace"/>
+        </field>
+    </record>
+</odoo>

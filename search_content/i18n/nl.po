@@ -1,0 +1,209 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* search_content
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-23 13:10+0000\n"
+"PO-Revision-Date: 2024-07-23 15:11+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.1\n"
+
+#. module: search_content
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_form
+#: model_terms:ir.ui.view,arch_db:search_content.view_message_form
+msgid "<span class=\"o_stat_text\">Open linked item</span>"
+msgstr "<span class=\"o_stat_text\">Open gekoppeld item</span>"
+
+#. module: search_content
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_form
+msgid "<span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>"
+msgstr ""
+
+#. module: search_content
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_form
+msgid "Attached To"
+msgstr "Gekoppeld aan"
+
+#. module: search_content
+#: model:ir.model,name:search_content.model_ir_attachment
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_search
+msgid "Attachment (name and content)"
+msgstr "Bijlage (naam en inhoud)"
+
+#. module: search_content
+#: model:ir.ui.menu,name:search_content.search_content_attachment
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_form
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_search
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_tree
+msgid "Attachments"
+msgstr "Documenten"
+
+#. module: search_content
+#: model:ir.actions.act_window,name:search_content.action_search_content_attachment
+msgid "Attachments search docs"
+msgstr "Documenten"
+
+#. module: search_content
+#: model:ir.model.fields,field_description:search_content.field_mail_mail__sc_author_name
+#: model:ir.model.fields,field_description:search_content.field_mail_message__sc_author_name
+msgid "Author name"
+msgstr "Auteur"
+
+#. module: search_content
+#: model_terms:ir.ui.view,arch_db:search_content.view_message_form
+msgid "Body"
+msgstr "Inhoud"
+
+#. module: search_content
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_search
+msgid "Created by"
+msgstr "Gemaakt door"
+
+#. module: search_content
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_form
+msgid "Creation"
+msgstr "Gemaakt door"
+
+#. module: search_content
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_form
+msgid "Description"
+msgstr "Omschrijving"
+
+#. module: search_content
+#: model_terms:ir.ui.view,arch_db:search_content.view_message_search
+msgid "E-mail"
+msgstr "E-mail"
+
+#. module: search_content
+#. odoo-python
+#: code:addons/search_content/models/mail_message.py:0
+#: model_terms:ir.ui.view,arch_db:search_content.view_message_search
+#, python-format
+msgid "E-mail incoming"
+msgstr "E-mail inkomend"
+
+#. module: search_content
+#. odoo-python
+#: code:addons/search_content/models/mail_message.py:0
+#: model_terms:ir.ui.view,arch_db:search_content.view_message_search
+#, python-format
+msgid "E-mail outgoing"
+msgstr "E-mail uitgaand"
+
+#. module: search_content
+#: model:ir.model.fields,field_description:search_content.field_mail_mail__sc_email_to
+#: model:ir.model.fields,field_description:search_content.field_mail_message__sc_email_to
+msgid "E-mail to"
+msgstr "Ontvanger(s)"
+
+#. module: search_content
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_search
+msgid "Filter on my documents"
+msgstr "Filter op mijn documenten"
+
+#. module: search_content
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_form
+msgid "History"
+msgstr "Geschiedenis"
+
+#. module: search_content
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_form
+msgid "Indexed Content"
+msgstr "Doorzoekbare inhoud"
+
+#. module: search_content
+#: model:ir.model,name:search_content.model_mail_message
+#: model_terms:ir.ui.view,arch_db:search_content.view_message_form
+#: model_terms:ir.ui.view,arch_db:search_content.view_message_search
+msgid "Message"
+msgstr "Bericht"
+
+#. module: search_content
+#: model:ir.model.fields,field_description:search_content.field_mail_mail__sc_message_type
+#: model:ir.model.fields,field_description:search_content.field_mail_message__sc_message_type
+msgid "Message type"
+msgstr "Berichttype"
+
+#. module: search_content
+#: model:ir.ui.menu,name:search_content.search_content_mail_message
+#: model_terms:ir.ui.view,arch_db:search_content.view_message_tree
+msgid "Messages"
+msgstr "Berichten"
+
+#. module: search_content
+#: model_terms:ir.ui.view,arch_db:search_content.view_message_search
+msgid "Messages Search"
+msgstr "Berichten"
+
+#. module: search_content
+#: model:ir.actions.act_window,name:search_content.action_search_content_mail_message
+msgid "Messages search notes mail"
+msgstr "Berichten"
+
+#. module: search_content
+#: model:ir.model.fields,field_description:search_content.field_ir_attachment__sc_model_id
+#: model:ir.model.fields,field_description:search_content.field_mail_mail__sc_model_id
+#: model:ir.model.fields,field_description:search_content.field_mail_message__sc_model_id
+#: model:ir.model.fields,field_description:search_content.field_product_document__sc_model_id
+msgid "Model"
+msgstr "Itemsoort"
+
+#. module: search_content
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_search
+msgid "My Document(s)"
+msgstr "Mijn document(en)"
+
+#. module: search_content
+#. odoo-python
+#: code:addons/search_content/models/mail_message.py:0
+#: model_terms:ir.ui.view,arch_db:search_content.view_message_search
+#, python-format
+msgid "Note"
+msgstr "Notitie"
+
+#. module: search_content
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_form
+#: model_terms:ir.ui.view,arch_db:search_content.view_message_form
+msgid "Record"
+msgstr "Item"
+
+#. module: search_content
+#. odoo-python
+#: code:addons/search_content/models/ir_attachment.py:0
+#, python-format
+msgid "Record voor %s"
+msgstr "Item voor %s"
+
+#. module: search_content
+#: model:ir.model.fields,field_description:search_content.field_ir_attachment__sc_reference
+#: model:ir.model.fields,field_description:search_content.field_mail_mail__sc_reference
+#: model:ir.model.fields,field_description:search_content.field_mail_message__sc_reference
+#: model:ir.model.fields,field_description:search_content.field_product_document__sc_reference
+msgid "Reference"
+msgstr "Verwijzing"
+
+#. module: search_content
+#: model:ir.ui.menu,name:search_content.search_content_root
+msgid "Search content"
+msgstr "Zoek inhoud"
+
+#. module: search_content
+#. odoo-python
+#: code:addons/search_content/models/mail_message.py:0
+#, python-format
+msgid "Unknown"
+msgstr "Ongekend"
+
+#. module: search_content
+#: model_terms:ir.ui.view,arch_db:search_content.view_attachment_form
+msgid "on"
+msgstr "op"

@@ -1,0 +1,46 @@
+<odoo>
+    <record id="edit_project_contacts" model="ir.ui.view">
+        <field name="name">project.project.form.contacts</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="related_partner_ids" widget="many2many_tags"
+                       placeholder="Select related contacts..."
+                       options="{'no_quick_create': True, 'no_create': True, 'no_edit': True}"
+                       context="{'form_view_ref': 'base.view_partner_simple_form'}"
+                       invisible="related_partner_category_ids"
+                />
+                <field name="related_partner_category_ids" widget="many2many_tags"
+                       placeholder="Select related contact-tags..."
+                       options="{'no_quick_create': True, 'no_create': True, 'no_edit': True}"
+                       invisible="related_partner_ids"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project_contacts_view_form_simplified" model="ir.ui.view">
+        <field name="name">project.project.view.form.simplified.contacts</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.project_project_view_form_simplified"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="before">
+                <label for="related_partner_ids" />
+                <field name="related_partner_ids" widget="many2many_tags"
+                       placeholder="Select related contacts..."
+                       options="{'no_quick_create': True, 'no_create': True, 'no_edit': True}"
+                       context="{'form_view_ref': 'base.view_partner_simple_form'}"
+                       invisible="related_partner_category_ids"
+                />
+                <br/>
+                <label for="related_partner_category_ids" />
+                <field name="related_partner_category_ids" widget="many2many_tags"
+                       placeholder="Select related contact-tags..."
+                       options="{'no_quick_create': True, 'no_create': True, 'no_edit': True}"
+                       invisible="related_partner_ids"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
