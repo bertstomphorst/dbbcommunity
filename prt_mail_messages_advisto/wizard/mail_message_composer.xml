@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="email_compose_message_wizard_advisto" model="ir.ui.view">
+        <field name="name">mail.compose.message.form DBB</field>
+        <field name="model">mail.compose.message</field>
+        <field name="inherit_id" ref="prt_mail_messages.prt_mail_compose_message_view_form" />
+        <field name="arch" type="xml">
+            <!-- Verberg knop met ondertekening -->
+            <xpath expr="//field[@name='signature_location']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

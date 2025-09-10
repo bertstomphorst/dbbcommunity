@@ -1,0 +1,124 @@
+<odoo>
+    <!-- Views -->
+    <record id="view_message_tree" model="ir.ui.view">
+        <field name="name">mail.message.tree.search_content</field>
+        <field name="model">mail.message</field>
+        <field name="type">tree</field>
+        <field name="active">True</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <tree string="Messages" edit="False" create="False" delete="False">
+                <field name="date"/>
+                <field name="sc_message_type"/>
+                <field name="subject"/>
+                <field name="sc_author_name"/>
+                <field name="sc_model_id" optional="show"/>
+                <field name="record_name"/>
+                <field name="record_company_id" optional="hide"/>
+                <field name="email_from"/>
+                <field name="sc_email_to" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_message_form" model="ir.ui.view">
+        <field name="name">mail.message.form.search_content</field>
+        <field name="model">mail.message</field>
+        <field name="type">form</field>
+        <field name="active">True</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <form string="Message" edit="False" create="False" delete="False">
+                <sheet>
+                    <field name="model" invisible="True"/>
+                    <field name="res_id" invisible="True"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_document" type="object" class="oe_link" icon="fa-file-text-o" invisible="not model or res_id == 0">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Open linked item</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="sc_message_type"/>
+                            <field name="date"/>
+                            <field name="record_company_id"/>
+                            <field name="email_from"/>
+                            <field name="sc_email_to"/>
+                            <field name="subject"/>
+                        </group>
+                        <group>
+                            <field name="sc_author_name"/>
+                            <field name="sc_model_id"/>
+                            <field name="sc_reference" string="Record" widget="reference"/>
+
+                            <field name="message_type" invisible="True"/>
+                            <field name="attachment_ids" widget="many2many_binary" invisible="message_type in ['email', 'email_outgoing']"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Body" name="body">
+                            <field name="body" options="{'style-inline': true}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_message_search" model="ir.ui.view">
+        <field name="name">mail.message.search.search_content</field>
+        <field name="model">mail.message</field>
+        <field name="type">search</field>
+        <field name="active">True</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <search string="Messages Search">
+                <field name="body" string="Message" filter_domain="['|', ('subject', 'ilike', self), ('body', 'ilike', self)]" />
+                <field name="subject"/>
+                <field name="partner_ids"/>
+                <field name="author_id"/>
+                <field name="sc_model_id"/>
+                <field name="sc_message_type"/>
+
+                <filter string="E-mail" name="filter_is_email" domain="[('message_type', 'in', ['email', 'email_outgoing'])]" />
+                <filter string="E-mail incoming" name="filter_is_email_incoming" domain="[('message_type', '=', 'email')]" />
+                <filter string="E-mail outgoing" name="filter_is_email_outgoing" domain="[('message_type', '=', 'email_outgoing')]" />
+                <filter string="Note" name="filter_is_note" domain="[('message_type', '=', 'comment')]" />
+                <separator/>
+            </search>
+        </field>
+    </record>
+
+
+
+    <!-- Actions -->
+    <record id="action_search_content_mail_message" model="ir.actions.act_window">
+        <field name="name">Messages search notes mail</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">mail.message</field>
+        <field name="domain">[('message_type', 'in', ['email', 'comment', 'email_outgoing'])]</field>
+        <field name="view_mode">tree,form</field>
+        <field
+            name="view_ids"
+            eval="[(5, 0, 0),
+          (0, 0, {'view_mode': 'tree', 'view_id': ref('view_message_tree')}),
+          (0, 0, {'view_mode': 'form', 'view_id': ref('view_message_form')})]"
+        />
+        <field name="search_view_id" ref="view_message_search"/>
+    </record>
+
+
+    <!-- Menu -->
+    <menuitem
+        id="search_content_mail_message"
+        name="Messages"
+        action="action_search_content_mail_message"
+        parent="search_content_root"
+        groups="base.group_user,base.group_partner_manager"
+        sequence="1"
+    />
+
+</odoo>
