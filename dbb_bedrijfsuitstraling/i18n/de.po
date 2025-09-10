@@ -1,0 +1,35 @@
+#. module: advisto_bedrijfsuitstraling
+#: model_terms:ir.ui.view,arch_db:advisto_bedrijfsuitstraling.external_layout_standard_advisto
+msgid "Page"
+msgstr "Seite"
+
+#. module: advisto_bedrijfsuitstraling
+#: model_terms:ir.ui.view,arch_db:advisto_bedrijfsuitstraling.external_layout_standard_advisto
+msgid "of"
+msgstr "von"
+
+#. module: advisto_bedrijfsuitstraling
+#: model_terms:ir.ui.view,arch_db:advisto_bedrijfsuitstraling.external_layout_standard_advisto
+msgid "Telefoon"
+msgstr "Telefon"
+
+#. module: advisto_bedrijfsuitstraling
+#: model_terms:ir.ui.view,arch_db:advisto_bedrijfsuitstraling.external_layout_standard_advisto
+msgid "E-mail"
+msgstr "E-Mail"
+
+#. module: advisto_bedrijfsuitstraling
+#: model_terms:ir.ui.view,arch_db:advisto_bedrijfsuitstraling.external_layout_standard_advisto
+msgid "Disclaimer"
+msgstr "Telefon"
+
+#. module: advisto_bedrijfsuitstraling
+#: model_terms:ir.ui.view,arch_db:advisto_bedrijfsuitstraling.external_layout_standard_advisto
+msgid ""
+"Wij sluiten hierbij elke aansprakelijkheid uit in verband met het niet juist, onvolledig of niet tijdig overkomen van de informatie in deze e-mail. Aan dit bericht kunnen geen rechten"
+"worden ontleend. Dit bericht is alleen bestemd voor de geadresseerden c.q. degene die in de aanhef wordt genoemd. Indien dit bericht niet voor u bestemd is, verzoeken wij u dit"
+"onmiddellijk aan ons te melden en de inhoud van het bericht te vernietigen."
+msgstr ""
+"Wir schließen hiermit jegliche Haftung im Zusammenhang mit der fehlerhaften, unvollständigen oder nicht rechtzeitigen Übermittlung der in dieser E-Mail enthaltenen Informationen aus."
+"Aus dieser Nachricht können keine Rechte abgeleitet werden. Diese Nachricht ist nur für die Adressaten bzw. die in der Anrede genannte Person bestimmt."
+"Sollten Sie nicht der vorgesehene Empfänger dieser Nachricht sein, informieren Sie uns bitte umgehend und vernichten Sie den Inhalt der Nachricht."

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="invoice_document_dbb" inherit_id="account.report_invoice_document">
+			<!-- Niet tonen leverdatum -->
+			<xpath expr="//div[hasclass('page')]/div[@id='informations']/div[@name='delivery_date']" position="replace"/>
+
+			<!-- Niet tonen 'bron' (verkooporder) -->
+			<xpath expr="//div[hasclass('page')]/div[@id='informations']/div[@name='origin']" position="replace"/>
+
+			<!-- Toevoegen urenstaten indien aanwezig -->
+			<xpath expr="//div[hasclass('page')]/.." position="after">
+				<t t-if="o.timesheet_count &gt; 0">
+					<div style="page-break-before:always;"/>
+
+    			    <t t-set="lines" t-value="o.timesheet_ids"/>
+    			    <t t-set="show_project" t-value="False"/>
+    			    <t t-set="show_task" t-value="True"/>
+					<t t-call="hr_timesheet.timesheet_table"/>
+				</t>
+			</xpath>
+		</template>
+
+		<template id="timesheet_table_dbb" inherit_id="hr_timesheet.timesheet_table">
+			<!-- datum zonder linebreaks -->
+			<xpath expr="//tbody/tr/td[1]" position="attributes">
+				<attribute name="style">white-space: nowrap;</attribute>
+			</xpath>
+			<!-- werknemer zonder linebreaks -->
+			<xpath expr="//tbody/tr/td[2]" position="attributes">
+				<attribute name="style">white-space: nowrap;</attribute>
+			</xpath>
+		</template>
+	</data>
+</odoo>
