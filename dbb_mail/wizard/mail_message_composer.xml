@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="email_compose_message_wizard_advisto" model="ir.ui.view">
+        <field name="name">mail.compose.message.form DBB</field>
+        <field name="model">mail.compose.message</field>
+<!--        <field name="inherit_id" ref="prt_mail_messages.prt_mail_compose_message_view_form" />-->
+        <field name="inherit_id" ref="mail.email_compose_message_wizard_form" />
+        <field name="arch" type="xml">
+            <!-- Verberg email_from, die wordt automatisch gezet -->
+            <xpath expr="//field[@name='email_from']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+
+            <!-- Keuze afzender -->
+            <xpath expr="//field[@name='composition_mode']" position="before">
+                <field name="email_from_company" options='{"no_open": True, "no_create": True}' invisible="subtype_is_log" />
+            </xpath>
+
+            <!-- Verberg template_id, die wordt automatisch gezet -->
+            <xpath expr="//field[@name='template_id']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+
+            <!-- Verberg knop voor opslaan als template, daar willen we geen misbruik op -->
+            <xpath expr="//button[@name='open_template_creation_wizard']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="email_compose_form_mass_mailing_dbb" model="ir.ui.view">
+        <field name="name">mail.compose.message.form.mass_mailing DBB</field>
+        <field name="model">mail.compose.message</field>
+        <field name="inherit_id" ref="mass_mailing.email_compose_form_mass_mailing" />
+        <field name="arch" type="xml">
+            <!-- Geen mass_mailing zichtbaar, die gaan we altijd vullen -->
+            <xpath expr="//field[@name='mass_mailing_name']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="documents_request_form_view_dbb" model="ir.ui.view">
+        <field name="name">Request File DBB</field>
+        <field name="model">documents.request_wizard</field>
+        <field name="inherit_id" ref="documents.documents_request_form_view" />
+        <field name="arch" type="xml">
+            <!-- Keuze afzender -->
+            <xpath expr="//field[@name='tag_ids']/.." position="after">
+                <group>
+                    <field name="email_from_company" options='{"no_open": True, "no_create": True}' />
+                </group>
+            </xpath>
+
+            <!-- Verduidelijken tekst bericht -->
+            <xpath expr="//label[@for='activity_note']" position="attributes">
+                <attribute name="string">Bericht (zonder aanhef/ondertekening)</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

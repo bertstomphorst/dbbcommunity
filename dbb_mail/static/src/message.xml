@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="mail.Message.DBB" t-inherit="mail.Message" t-inherit-mode="extension">
+        <xpath expr="//ActionSwiper/div/div/div[2]/div" position="after">
+            <t t-if="!message.is_note">
+                <div class="position-relative d-flex opacity-75">
+                    <small class="o-mail-Message-date" t-att-class="{ 'me-2': !isAlignedRight }">
+                        <t t-out="message.email_from"/>
+                    </small>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,26 @@
+<odoo>
+    <record id="view_mail_mass_mailing_tree_dbb" model="ir.ui.view">
+            <field name="name">mailing.mailing.tree DBB</field>
+            <field name="model">mailing.mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_tree" />
+        <field name="arch" type="xml">
+            <!-- Keuze afzender -->
+            <xpath expr="//field[@name='subject']" position="before">
+                <field name="email_from_company" options='{"no_open": True, "no_create": True}'/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mail_mass_mailing_form_dbb" model="ir.ui.view">
+            <field name="name">mailing.mailing.form DBB</field>
+            <field name="model">mailing.mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form" />
+        <field name="arch" type="xml">
+            <!-- Keuze afzender -->
+            <xpath expr="//label[@for='subject']" position="before">
+                <label for="email_from_company"/>
+                <field name="email_from_company" nolabel="1" options='{"no_open": True, "no_create": True}'/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
